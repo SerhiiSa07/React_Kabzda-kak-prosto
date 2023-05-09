@@ -10,9 +10,12 @@ function Accordion() {
     )
 }
 function AccordionTitle () {
+
     console.log("Accordion rendering")
     return (
+
          <h3>Меню</h3>
+
     )
 }
 function AccordionBody () {

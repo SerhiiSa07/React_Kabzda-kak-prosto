@@ -1,13 +1,22 @@
 import React, {useState} from 'react';
+
 import './App.css';
+
 import Accordion from "./components/Accordion/Accordion";
+
 import {Rating} from "./components/Rating/Rating";
 
-function App () {
+import OnOff from "./components/OnOff/OnOff";
+import UncontrolledAccordion from "./components/OncontrolledAccordion/OncontrolledAccordion";
+
+function App (props:any) {
 
     return(
         <div className="App">
-            <AppTitle/>
+            <OnOff/>
+            <OnOff/>
+            <OnOff/>
+            {/*<AppTitle/>
             <Rating value={3}/>
             <Accordion/>
             <Rating value={0}/>
@@ -15,7 +24,10 @@ function App () {
             <Rating value={2}/>
             <Rating value={3}/>
             <Rating value={4}/>
-            <Rating value={5}/>
+            <Rating value={5}/>*/}
+
+            <UncontrolledAccordion titleValue={"Меню"}/>
+            <UncontrolledAccordion titleValue={"Users"}/>
         </div>
     );
 }
