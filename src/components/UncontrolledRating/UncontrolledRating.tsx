@@ -30,7 +30,7 @@ function Star (props: StarPropsType) {
     console.log("Star rendering")
 
     return <span onClick={ () => {props.setValue(props.value)} }>
-        {props.selected ? <b>star</b> : "star"}
+        {props.selected ? <b>star  </b> : "star"}
     </span>
 }
 

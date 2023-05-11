@@ -3,9 +3,11 @@ import './App.css';
 import OnOff from "./components/OnOff/OnOff";
 import UncontrolledAccordion from "./components/UncontrolledAccordion/UncontrolledAccordion";
 import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
-import {Rating} from "./components/Rating/Rating";
+import {Rating, RatingValueType} from "./components/Rating/Rating";
 
 function App (props:any) {
+
+    let [ratingValue, setRatingValue] = useState <RatingValueType> (4)
 
     return(
         <div className="App">
@@ -23,7 +25,7 @@ function App (props:any) {
 
             <UncontrolledRating/>
 
-            <Rating value={3}/>
+            <Rating value={ratingValue} onClick={setRatingValue}/>
 
         </div>
     );
