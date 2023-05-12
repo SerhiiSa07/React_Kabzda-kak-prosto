@@ -10,80 +10,29 @@ type RatingPropsType = {
 export function Rating (props: RatingPropsType) {
     console.log("Rating rendering")
 
-    if (props.value === 1) {
-        return (
-            <div>
-                <Star selected={true}/>
-                <Star selected={false}/>
-                <Star selected={false}/>
-                <Star selected={false}/>
-                <Star selected={false}/>
-            </div>
-        );
-    }
-    if (props.value === 2) {
-        return (
-            <div>
-                <Star selected={true}/>
-                <Star selected={true}/>
-                <Star selected={false}/>
-                <Star selected={false}/>
-                <Star selected={false}/>
-            </div>
-        );
-    }
-    if (props.value === 3) {
-        return (
-            <div>
-                <Star selected={true}/>
-                <Star selected={true}/>
-                <Star selected={true}/>
-                <Star selected={false}/>
-                <Star selected={false}/>
-            </div>
-        );
-    }
-    if (props.value === 4) {
-        return (
-            <div>
-                <Star selected={true}/>
-                <Star selected={true}/>
-                <Star selected={true}/>
-                <Star selected={true}/>
-                <Star selected={false}/>
-            </div>
-        );
-    }
-    if (props.value === 5) {
-        return (
-            <div>
-                <Star selected={true}/>
-                <Star selected={true}/>
-                <Star selected={true}/>
-                <Star selected={true}/>
-                <Star selected={true}/>
-            </div>
-        );
-    }
     return (
         <div>
-            <Star selected={false}/>
-            <Star selected={false}/>
-            <Star selected={false}/>
-            <Star selected={false}/>
-            <Star selected={false}/>
+            <Star selected={props.value > 0} onClick={props.onClick} value={1} />
+            <Star selected={props.value > 1} onClick={props.onClick} value={1}/>
+            <Star selected={props.value > 2} onClick={props.onClick} value={1}/>
+            <Star selected={props.value > 3} onClick={props.onClick} value={1}/>
+            <Star selected={props.value > 4} onClick={props.onClick} value={1}/>
         </div>
     );
 }
 
 type StarPropsType = {
     selected: boolean
+    value: RatingValueType
+    onClick: (value: RatingValueType) => void
 }
 
 function Star (props: StarPropsType) {
     console.log("Star rendering")
 
-        return <span>
+        return <span onClick={() => {
+            return props.onClick(props.value)
+        } }>
             {props.selected ? <b>star </b> : "star"}
     </span>
 }
