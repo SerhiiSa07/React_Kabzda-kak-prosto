@@ -11,28 +11,28 @@ function App (props:any) {
 
     let [ratingValue, setRatingValue] = useState <RatingValueType> (4)
     let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
-    let [switchOn, setSwitchOn] = useState <boolean> (false);
+    let [switchOn, setSwitchOn] = useState<boolean>(false);
 
     return(
         <div className="App">
-            <OnOff on={switchOn} onChange={setSwitchOn}/>
+            {/*<OnOff on={switchOn} onChange={setSwitchOn}/>*/}
             {/*<AppTitle/>
             <Rating value={3}/>*/}
-            <Accordion titleValue={"Меню"}
+            {/*<Accordion titleValue={"Меню"}
                        collapsed={accordionCollapsed}
                        onChange={
                 () => {setAccordionCollapsed (!accordionCollapsed) }
-            }/>
+            }/>*/}
             {/*<Rating value={0}/>
             <Rating value={1}/>
             <Rating value={2}/>
             <Rating value={3}/>
             <Rating value={4}/>
             <Rating value={5}/>*/}
-            <UncontrolledAccordion titleValue={"Меню"}/>
-            <UncontrolledRating/>
-            <Rating value={ratingValue} onClick={setRatingValue}/>
-            <UncontrolledOnOff/>
+            {/*<UncontrolledAccordion titleValue={"Меню"}/>
+            <UncontrolledRating/>*/}
+            {/*<Rating value={ratingValue} onClick={setRatingValue}/>*/}
+            <UncontrolledOnOff onChange={setSwitchOn}/> {switchOn.toString()}
         </div>
     );
 }
