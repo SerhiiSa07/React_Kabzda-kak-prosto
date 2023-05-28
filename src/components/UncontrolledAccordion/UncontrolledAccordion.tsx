@@ -4,7 +4,7 @@ type AccordionPropsType = {
     titleValue: string
 }
 
-function UncontrolledAccordion(props: AccordionPropsType) {
+export function UncontrolledAccordion(props: AccordionPropsType) {
     console.log("Accordion rendering")
 
     let [collapsed, setCollapsed] = useState(false);
@@ -24,7 +24,7 @@ type AccordionTitlePropsType = {
     onClick: () => void
 }
 
-function AccordionTitle(props: AccordionTitlePropsType) {
+export function AccordionTitle(props: AccordionTitlePropsType) {
 
     console.log("AccordionTitle rendering")
     return (
@@ -34,7 +34,7 @@ function AccordionTitle(props: AccordionTitlePropsType) {
     )
 }
 
-function AccordionBody() {
+export function AccordionBody() {
     console.log("Accordion rendering")
     return (
         <ul>
@@ -45,4 +45,3 @@ function AccordionBody() {
     )
 }
 
-export default UncontrolledAccordion
