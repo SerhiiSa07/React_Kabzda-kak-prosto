@@ -21,7 +21,7 @@ export function Accordion(props:AccordionPropsType) {
     return (
         <div>
             <AccordionTitle title={props.titleValue} onChange={props.onChange}/>
-            {!props.collapsed && <AccordionBody/>}
+            {!props.collapsed && <AccordionBody items={props.items} onClick={props.onClick}/>}
         </div>
     )
 }
@@ -46,13 +46,11 @@ type AccordionBodyPropsType = {
     onClick: (value: any) => void
 }
 
-export function AccordionBody () {
+export function AccordionBody (props: AccordionBodyPropsType) {
     console.log("Accordion rendering")
     return (
         <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
+            { props.items.map ( (i, index) => <li onClick={() => { props.onClick(i.value) } } key={index}>{i.title}</li>) }
         </ul>
      )
 }

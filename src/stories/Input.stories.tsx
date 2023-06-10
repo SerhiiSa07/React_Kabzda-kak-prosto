@@ -1,5 +1,6 @@
 import React, {ChangeEvent, useRef, useState} from "react";
-
+import {action} from "@storybook/addon-actions";
+import sel from './Select.module.css'
 
 export default {
   title: 'input',
@@ -16,7 +17,9 @@ export const TrackValueOfUncontrolledInput = () => {
   const onChange=(event: ChangeEvent<HTMLInputElement>) => {
     const activeValue = event.currentTarget.value;
     setValue(activeValue);
+
   }
+
   return <>
     <input
         onChange={onChange}
@@ -44,5 +47,55 @@ export const GetValueOfUncontrolledInput = () => {
 
 }
 
-export const ControlledInput = () => <input value={'Serg'}/>;
+
+export const ControlledInput = () =>  {
+
+  const [parentValue, setParentValue] = useState('');
+
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+
+    setParentValue(e.currentTarget.value)
+
+  }
+
+  return <input value={parentValue} onChange={onChange}/>
+
+}
+
+  export const ControlledCheckbox = () => {
+
+  const [parentValue, setParentValue] = useState(true);
+
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+
+    setParentValue(e.currentTarget.checked);
+
+  }
+
+  return <input type="checkbox" checked={parentValue} onChange={onChange}/>
+
+}
+
+  export const ControlledSelect = () => {
+
+  const [parentValue, setParentValue] = useState <string | undefined>('1');
+
+  const onChange = (e: ChangeEvent<HTMLSelectElement>) => {
+
+    setParentValue(e.currentTarget.value);
+
+  }
+
+  return <select className={sel.selectTitle} value={parentValue} onChange={onChange}>
+
+    <option>none</option>
+    <option value="1">Czech</option>
+    <option value="2">Ukraine</option>
+    <option value="3">Poland</option>
+
+  </select>
+
+}
+
+export const ControlledInputWithFixedValue = () => <input value={"Serg"}/>
 
