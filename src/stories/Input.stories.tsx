@@ -1,12 +1,11 @@
 import React, {ChangeEvent, useRef, useState} from "react";
 import {action} from "@storybook/addon-actions";
-import sel from './Select.module.css'
+import styles from '../components/Select/Select.module.css'
 
 export default {
   title: 'input',
   /*component: OnOff*/
 };
-
 
 export const UncontrolledInput = () => <input/>;
 
@@ -86,7 +85,7 @@ export const ControlledInput = () =>  {
 
   }
 
-  return <select className={sel.selectTitle} value={parentValue} onChange={onChange}>
+  return <select className={styles.selectTitle} value={parentValue} onChange={onChange}>
 
     <option>none</option>
     <option value="1">Czech</option>
