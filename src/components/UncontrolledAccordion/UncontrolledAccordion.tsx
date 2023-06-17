@@ -1,7 +1,36 @@
 import React, {useState} from 'react';
+import {action} from "@storybook/addon-actions";
+import {reducer, TOGGLE_CONSTANT} from "redux-form";
 
 type AccordionPropsType = {
     titleValue: string
+}
+
+
+function UnccontrolledAccordion(props: AccordionPropsType) {
+
+    console.log('UncontrolledAccordion rendering')
+
+    let [collapsed, dispatch] = useState(reducer, { collapsed: false });
+
+    return <div>
+        <AccordionTitle title={props.titleValue} onClick={ () => {
+            dispatch({type: TOGGLE_CONSTANT})
+        } } />
+    </div>
+
+}
+
+type AccordionTitlePropsType = {
+    title: string
+    onClick: () => void
+}
+
+function AccordionTitle (props: AccordionTitlePropsType) {
+    console.log('AccordionTitle rendering')
+    return(
+        <h3 onClick={ () => { props.onClick() } }>-- {props.title} --</h3>
+    )
 }
 
 export function UncontrolledAccordion(props: AccordionPropsType) {
