@@ -1,24 +1,24 @@
-import React, {useState} from 'react';
-import {action} from "@storybook/addon-actions";
-import {reducer, TOGGLE_CONSTANT} from "redux-form";
+import React, {useReducer} from 'react';
+import {reducer, TOGGLE_COLLAPSED} from "./reducer";
 
 type AccordionPropsType = {
     titleValue: string
 }
 
-
-function UnccontrolledAccordion(props: AccordionPropsType) {
+export function UncontrolledAccordion (props: AccordionPropsType) {
 
     console.log('UncontrolledAccordion rendering')
 
-    let [collapsed, dispatch] = useState(reducer, { collapsed: false });
+    let [state, dispatch] = useReducer (reducer, { collapsed: false });
 
-    return <div>
-        <AccordionTitle title={props.titleValue} onClick={ () => {
-            dispatch({type: TOGGLE_CONSTANT})
-        } } />
-    </div>
-
+    return (
+        <div>
+            <AccordionTitle title={props.titleValue} onClick={() => {
+                dispatch({type: TOGGLE_COLLAPSED})
+            }}/>
+            {!state.collapsed && <AccordionBody/>}
+        </div>
+    )
 }
 
 type AccordionTitlePropsType = {
@@ -26,40 +26,10 @@ type AccordionTitlePropsType = {
     onClick: () => void
 }
 
-function AccordionTitle (props: AccordionTitlePropsType) {
+export function AccordionTitle (props: AccordionTitlePropsType) {
     console.log('AccordionTitle rendering')
     return(
         <h3 onClick={ () => { props.onClick() } }>-- {props.title} --</h3>
-    )
-}
-
-export function UncontrolledAccordion(props: AccordionPropsType) {
-    console.log("Accordion rendering")
-
-    let [collapsed, setCollapsed] = useState(false);
-
-    return (
-
-        <div>
-            <AccordionTitle title={props.titleValue} onClick={ () => {setCollapsed(!collapsed)}}/>
-            {!collapsed && <AccordionBody/>}
-        </div>
-
-    )
-}
-
-type AccordionTitlePropsType = {
-    title: string
-    onClick: () => void
-}
-
-export function AccordionTitle(props: AccordionTitlePropsType) {
-
-    console.log("AccordionTitle rendering")
-    return (
-
-        <h3 onClick={ () => {props.onClick()} }>-- {props.title} --</h3>
-
     )
 }
 
