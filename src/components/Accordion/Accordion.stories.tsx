@@ -3,15 +3,21 @@ import {action} from '@storybook/addon-actions';
 import {Accordion, AccordionPropsType} from "./Accordion";
 import {StoryFn} from "@storybook/react";
 
-export default {
+export default  {
     title: 'Accordion',
-    component: Accordion
+    component: Accordion,
+    argTypes: {
+        color: {
+            control: 'color'
+        }
+    }
 };
 
-const callback = action('or on of clicked')
+const callback = action('accordion mode change event fired')
 const onClickCallback = action('some item was clicked')
 
 const Template: StoryFn<AccordionPropsType> = (args) => <Accordion {...args}/>
+
 const callbacksProps = {
     onChange: callback,
     onClick: onClickCallback
@@ -27,6 +33,8 @@ MenuCollapsedMode.args = {
     items: [],
     onClick: onClickCallback
 }
+
+
 
 export const UsersCollapsedMode = Template.bind({})
 UsersCollapsedMode.args = {
