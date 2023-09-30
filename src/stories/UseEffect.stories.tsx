@@ -4,7 +4,7 @@ export default {
     title: 'useEffect demo'
 }
 
-export const SimpleExample = () => {
+/*export const SimpleExample = () => {
     const [counter, setCounter] = useState(1)
     const [fake, setFake] = useState(1)
 
@@ -79,5 +79,31 @@ export const SetTimeoutExample2 = () => {
     return<>
 
         Hello, counter: {counter}
+    </>
+}*/
+
+export const Clock = () => {
+    const [time, setTime] = useState(new Date())
+
+    console.log('Clock')
+
+    useEffect( () => {
+        const interval = setInterval( () => {
+            setTime(new Date())
+        }, 1000);
+        return () => clearInterval(interval)
+
+    }, [])
+
+    const hours = time.getHours();
+    const minutes = time.getMinutes();
+    const seconds = time.getSeconds();
+
+    const timeString = `${hours} : ${minutes} : ${seconds}`;
+
+    return<>
+        <h1>
+            {timeString}
+        </h1>
     </>
 }
