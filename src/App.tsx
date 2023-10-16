@@ -6,7 +6,7 @@ import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRa
 import {Rating, RatingValueType} from "./components/Rating/Rating";
 import {Accordion} from "./components/Accordion/Accordion";
 import {UncontrolledOnOff} from "./components/UncontrolledOnOff/UncontrolledOnOff";
-
+import Clock2 from "./components/Clock/Clock2";
 function App (props:any) {
 
     let [ratingValue, setRatingValue] = useState <RatingValueType> (4)
@@ -15,6 +15,7 @@ function App (props:any) {
 
     return(
         <div className="App">
+           <Clock2/>
             {/*<OnOff on={switchOn} onChange={setSwitchOn}/>*/}
             {/*<AppTitle/>
             <Rating value={3}/>*/}
