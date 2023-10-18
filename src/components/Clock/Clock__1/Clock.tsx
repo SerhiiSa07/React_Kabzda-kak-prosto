@@ -25,12 +25,15 @@ export const Clock: React.FC<PropsType> = (props) => {
     }, [])
 
     return (
-        <div>
-            <span>{get2digitsString(data.getHours())}</span>
+        <div className="clock">
+            <div className="wrap">
+            <span className="hour">{get2digitsString(data.getHours())}</span>
             :
-            <span>{get2digitsString(data.getMinutes())}</span>
+            <span className="minute">{get2digitsString(data.getMinutes())}</span>
             :
-            <span>{get2digitsString(data.getSeconds())}</span>
+            <span className="second">{get2digitsString(data.getSeconds())}</span>
+                <span className="dot"></span>
+            </div>
         </div>
     )
 }

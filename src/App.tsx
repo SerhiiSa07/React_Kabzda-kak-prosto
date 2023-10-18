@@ -6,16 +6,17 @@ import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRa
 import {Rating, RatingValueType} from "./components/Rating/Rating";
 import {Accordion} from "./components/Accordion/Accordion";
 import {UncontrolledOnOff} from "./components/UncontrolledOnOff/UncontrolledOnOff";
-import Clock2 from "./components/Clock/Clock2";
-function App (props:any) {
+import Clock2 from "./components/Clock/FunctionalClock/Clock__2/Clock2";
+import Functional from "./components/Clock/FunctionalClock/Functional";
 
-    let [ratingValue, setRatingValue] = useState <RatingValueType> (4)
+function App () {
+
+   /* let [ratingValue, setRatingValue] = useState <RatingValueType> (4)
     let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
-    let [switchOn, setSwitchOn] = useState<boolean>(false);
-
+    let [switchOn, setSwitchOn] = useState<boolean>(false);*/
     return(
         <div className="App">
-           <Clock2/>
+           <Functional/>
             {/*<OnOff on={switchOn} onChange={setSwitchOn}/>*/}
             {/*<AppTitle/>
             <Rating value={3}/>*/}
@@ -38,9 +39,9 @@ function App (props:any) {
     );
 }
 
-function AppTitle() {
+/*function AppTitle() {
     console.log("AppTitle rendering")
     return <div>This is App component</div>
-}
+}*/
 
 export default App;

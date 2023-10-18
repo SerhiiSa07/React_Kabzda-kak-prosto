@@ -1,20 +1,8 @@
-/*
-*{
-    background-color: #F0F8FF;
-}
-.App{
-    width: 600px;
-    margin: 100px auto;
-
-}*/
-
-
 *,*::after,*::before{
     box-sizing: border-box;
     font-family: Gotham Rounded, sans-serif;
-
-
 }
+
 body {
     background: rgb(238, 235, 235);
     display: flex;
@@ -37,6 +25,7 @@ body {
     position: relative;
 
 }
+
 .clock::after {
     content: '';
     height: 30px;
@@ -92,35 +81,42 @@ body {
 .number2 div{
     transform: rotate(-60deg);
 }
+
 .number3 div{
     transform: rotate(-90deg);
 }
+
 .number4 div{
     transform: rotate(-120deg);
 }
+
 .number5 div{
     transform: rotate(-150deg);
 }
+
 .number6 div{
     transform: rotate(-180deg);
-
 }
+
 .number7 div{
     transform: rotate(-210deg);
 }
+
 .number8 div{
     transform: rotate(-240deg);
 }
+
 .number9 div{
     transform: rotate(-270deg);
 }
+
 .number10 div{
     transform: rotate(-300deg);
 }
+
 .number11 div{
     transform: rotate(-330deg);
 }
-
 
 .clock .hand {
     /* --roation:0; */
@@ -142,11 +138,13 @@ body {
     height: 45%;
     background-color: red;
 }
+
 .clock .hand.minute {
     width: 7px;
     height: 40%;
     background-color: black;
 }
+
 .clock .hand.hour {
     width: 10px;
     height: 30%;
