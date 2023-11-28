@@ -24,12 +24,12 @@ class Functional extends Component {
         this.setState({secondRatio: secondRatio = currentDate.getSeconds() / 60})
         this.setState({minuteRatio: minuteRatio = (secondRatio + currentDate.getMinutes()) / 60})
         this.setState({hourRatio: hourRatio = (minuteRatio + currentDate.getHours()) / 12});
-
     }
 
     render(){
 
         const {secondRatio, minuteRatio, hourRatio} = this.state
+
         return (
             <Clock2 secondRatio={secondRatio} minuteRatio={minuteRatio} hourRatio={hourRatio}/>
         );
