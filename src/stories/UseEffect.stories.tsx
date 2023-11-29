@@ -43,11 +43,11 @@ export default {
     </>
 }
 
-export const SetTimeoutExample = () => {
+export const SetTimeoutExample3 = () => {
     const [counter, setCounter] = useState(1)
     const [fake, setFake] = useState(1)
 
-    console.log('SetTimeoutExample')
+    console.log('SetTimeoutExample3')
 
     useEffect( () => {
         setTimeout( () => {
@@ -88,10 +88,10 @@ export const Clock = () => {
     console.log('Clock')
 
     useEffect( () => {
-        const interval = setInterval( () => {
+        const intervalID = setInterval( () => {
             setTime(new Date())
         }, 1000);
-        return () => clearInterval(interval)
+        return () => clearInterval(intervalID)
 
     }, [])
 
@@ -105,5 +105,72 @@ export const Clock = () => {
         <h1>
             {timeString}
         </h1>
+    </>
+}
+
+export const ResetEffectExample = () => {
+    const [counter, setCounter] = useState(1)
+
+    console.log('Component rendering')
+
+    useEffect( () => {
+        console.log('Effect occurred')
+
+        return () => {
+            console.log(
+                'RESET EFFECT' + counter
+            );
+        }
+    }, [counter])
+
+    return<>
+            Hello, counter: {counter} <button onClick={ () => {setCounter(counter + 1)} }>+</button>
+    </>
+}
+
+
+export const KeysTrackerExample = () => {
+
+    const [text, setText] = useState('')
+
+    console.log('Component rendered with ' + text)
+
+    useEffect(() => {
+
+        const handler = (e: KeyboardEvent) => {
+            console.log(e.key)
+            setText((state) => state + e.key)
+        };
+        window.addEventListener('keypress', handler);
+        return () => {
+            window.removeEventListener('keypress', handler);
+        }
+    }, [text])
+
+    return <>
+        Typed text: {text}
+    </>
+}
+
+export const SetTimeoutExample = () => {
+
+    const [text, setText] = useState('')
+
+    console.log('Component rendered with ' + text)
+
+    useEffect(() => {
+
+        const timeoutId = setTimeout( () => {
+            console.log('TIMEOUT EXPIRED')
+            setText('3 seconds passed')
+        }, 3000)
+
+        return () => {
+            clearTimeout(timeoutId)
+        }
+    }, [text])
+
+    return <>
+         text: {text}
     </>
 }

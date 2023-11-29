@@ -60,4 +60,3 @@ export const Clock: React.FC<PropsType> = (props) => {
 export type ClockViewPropsType = {
     date: Date
 }
-
